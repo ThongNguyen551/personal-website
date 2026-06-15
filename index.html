@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Thong Nguyen | Data Science & Computer Vision Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Thong Nguyen: Senior Data Scientist working on Computer Vision, Credit Risk, Fraud Detection, Industrial AI, Medical Imaging, and AI Agents." />
+  <meta name="keywords"
+    content="Thong Nguyen, Data Science, Computer Vision, Machine Learning, Fraud Detection, Credit Scoring, Industrial AI, AI Agent, Portfolio" />
+  <meta name="author" content="Thong Nguyen" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="Thong Nguyen | Data Science & Computer Vision Portfolio" />
+  <meta property="og:description"
+    content="Production ML for industrial computer vision, medical imaging, credit risk, fraud detection, and AI agents." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --panel: rgba(255, 255, 255, .86);
+      --panel-solid: #ffffff;
+      --text: #101828;
+      --muted: #667085;
+      --line: #e6ebf3;
+      --brand: #2563eb;
+      --brand-dark: #1d4ed8;
+      --brand-2: #14b8a6;
+      --soft: #eef4ff;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.09);
+      --radius: 28px;
+      --container: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(37, 99, 235, .15), transparent 30rem),
+        radial-gradient(circle at 90% 6%, rgba(20, 184, 166, .13), transparent 28rem),
+        var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 248, 252, .78);
+      border-bottom: 1px solid rgba(230, 235, 243, .78);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, .18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(37, 99, 235, .10);
+    }
+
+    main {
+      min-height: calc(100vh - 72px);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 44px 0 56px;
+      animation: fadeUp .22s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(230, 235, 243, .92);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-dark);
+      background: var(--soft);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.05rem, 4.3vw, 3.35rem);
+      line-height: 1.06;
+      letter-spacing: -.06em;
+      margin: 0 0 22px;
+      max-width: 980px;
+    }
+
+    h1 span,
+    .gradient {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      font-size: 17px;
+      color: #344054;
+      max-width: 850px;
+      margin: 0 0 16px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      background: var(--brand);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: .2s ease;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, .18);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      background: var(--brand-dark);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--text);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .profile-card {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -.08em;
+      box-shadow: 0 18px 38px rgba(37, 99, 235, .2);
+    }
+
+    .profile-card h2 {
+      font-size: 24px;
+      letter-spacing: -.04em;
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+
+    .profile-card p,
+    .muted {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      letter-spacing: -.04em;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      letter-spacing: -.055em;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 820px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel-solid);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -.03em;
+      line-height: 1.2;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: #475467;
+      font-size: 14.5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: #1d4ed8;
+      background: #eef4ff;
+      border: 1px solid #dbe8ff;
+      padding: 6px 9px;
+      border-radius: 999px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      background: var(--panel-solid);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .05);
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-top h3 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.03em;
+    }
+
+    .time {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    ul.clean {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: #475467;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .note-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .note {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .note h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-card {
+      padding: 32px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      color: #344054;
+      font-weight: 700;
+    }
+
+    .footer {
+      color: var(--muted);
+      padding: 20px 0 36px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+
+      .hero,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-card {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 9px 11px;
+      }
+
+      .tab-panel {
+        padding: 28px 0 40px;
+      }
+
+      .hero-card,
+      .profile-card,
+      .card,
+      .timeline-item,
+      .contact-card {
+        border-radius: 22px;
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-top {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 2.55rem);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav-wrap">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand tab-link" href="#home" data-tab="home" aria-label="Thong Nguyen homepage">
+        <span class="logo">TN</span>
+        <span>Thong Nguyen</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home" class="tab-link active" data-tab="home">Home</a>
+        <a href="#projects" class="tab-link" data-tab="projects">Projects</a>
+        <a href="#experience" class="tab-link" data-tab="experience">Experience</a>
+        <a href="#notes" class="tab-link" data-tab="notes">Blogs</a>
+        <a href="assets/Thong_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="#contact" class="tab-link" data-tab="contact">Contact</a>
+        <a href="#awards" class="tab-link" data-tab="awards">Honors & Awards</a>
+        <a href="#mentorship" class="tab-link" data-tab="mentorship">Mentorship</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="container tab-panel active">
+      <div class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Computer Vision Engineer · Senior Data Scientist · Applied AI Researcher</span>
+
+          <h1>
+            Building <span>production AI/CV/ML systems</span> for enhacing industrial automation, social impact and
+            human-centered applications.
+          </h1>
+
+          <p class="hero-description">
+            Hi, I'm Thong Nguyen, a Senior Data Scientist with experience spanning industrial computer vision, food
+            inspection,
+            medical imaging, fraud detection, and credit risk modeling. My work focuses on transforming machine
+            learning research into production systems that deliver measurable business impact as well as enhance human
+            life quality.
+          </p>
+
+          <p class="hero-description">
+            I have worked at Zalopay (VNG Corporation), where I have developed machine learning solutions for credit
+            scoring, fraud investigation, and risk monitoring. Previously, I worked at Tordivel in Norway, building
+            computer vision systems for industrial inspection, object detection, image segmentation, and automation.
+          </p>
+
+          <p class="hero-description">
+            I hold an Erasmus Mundus Master's degree in Computational Colour and Spectral Imaging (COSI), studying
+            across France, Norway, and Finland. My academic background includes computer vision, hyperspectral imaging,
+            machine learning, and medical image analysis.
+          </p>
+
+          <p class="hero-description">
+            My interests lie at the intersection of Computer Vision, Multimodal AI, Vision-Language Models, Agentic
+            Systems, Industrial AI, and Retrieval-Augmented Generation. I am particularly interested in building AI
+            systems that bridge cutting-edge research with real-world deployment.
+          </p>
+
+          <!-- <div class="button-row">
+            <a class="button tab-link" href="#projects" data-tab="projects"><i class="fa fa-code"></i> View Projects</a>
+            <a class="button secondary" href="assets/Thong_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer"><i
+                class="fa fa-file-text-o"></i> Resume</a>
+            <a class="button secondary" href="mailto:thongng96@gmail.com"><i class="fa fa-envelope-o"></i> Contact</a>
+          </div> -->
+        </div>
+
+        <aside class="profile-sidebar">
+          <img src="images/thong_profile.JPG" alt="Thong Nguyen" class="profile-photo" />
+
+          <h2>Thong Nguyen</h2>
+
+          <p class="profile-role" style="font-weight: bold;">
+            Computer Vision Engineer / Senior Data Scientist / Applied AI Researcher
+          </p>
+
+          <div class="contact-section">
+            <h3>Contact</h3>
+
+            <li class="contact-list">
+
+              <div>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:thongng96@gmail.com">
+                  thongng96@gmail.com
+                </a>
+              </div>
+
+              <div>
+                <i class="fa fa-linkedin"></i>
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+                  LinkedIn
+                </a>
+              </div>
+
+              <div>
+                <i class="fa fa-github"></i>
+                <a href="https://github.com/ThongNguyen551" target="_blank">
+                  GitHub
+                </a>
+              </div>
+
+              <div>
+                <i class="fa fa-globe"></i>
+                <a href="https://thongnguyen551.github.io/thong-cosi/index.html" target="_blank">
+                  Personal Website
+                </a>
+              </div>
+              <div>
+                <i class="fa fa-graduation-cap"></i>
+                <a href="https://scholar.google.com/citations?user=Q67Xo34AAAAJ&hl=en" target="_blank">
+                  Google Scholar
+                </a>
+              </div>
+              <div>
+                <i class="fa fa-map-marker"></i>
+                Oslo, Norway
+              </div>
+
+            </li>
+          </div>
+        </aside>
+    </section>
+
+    <section id="projects" class="container tab-panel">
+      <div class="section-head">
+        <h2>Selected Projects</h2>
+        <p>Projects focused on production computer vision, industrial inspection, and financial AI systems.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img src="images/credit_scoring_thumbnail.jpg" alt="Credit Scoring Survey" class="project-image" />
+          <h3>Credit Scoring Survey</h3>
+          <div class="project-links">
+            <a href="https://github.com/ThongNguyen551/Home-Credit-Scoring" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            |
+            <a href="https://drive.google.com/file/d/1AhkYSwwG1IfupKcqW621gCPtAoLSaEsH/view" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Built an end-to-end credit scoring pipeline using feature selection techniques (Correlation, LASSO, Random Forest) and machine learning models including 
+            LightGBM, XGBoost, and CatBoost, achieving a +0.37 Gini improvement on the Home Credit dataset.
+          </p>
+          <div class="tags">
+            <span class="tag">LightGBM</span>
+            <span class="tag">Credit Risk</span>
+            <span class="tag">Feature Engineering</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/zaloai2025.png" alt="AI-Powered Search & Rescue Drone" class="project-image" />
+          <h3>AI-Powered Search & Rescue Drone</h3>
+          <div class="project-links">
+            <a href="https://github.com/ThongNguyen551/zalo_ai_aero_eyes_finding_and_rescuing_with_ai_powered_drones.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            |
+            <a href="https://challenge.zalo.ai/portal/aero-eyes" target="_blank" class="project-link-btn">
+              <i class="fa fa-external-link"></i>
+              Competition
+            </a>
+          </div>
+          <p>
+            Developed an AI-powered drone solution for search and rescue
+            operations, leveraging computer vision and aerial imagery
+            analysis to detect and localize missing persons in challenging
+            environments.
+          </p>
+          <div class="tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Drone AI</span>
+            <span class="tag">Object Detection</span>
+            <span class="tag">Search & Rescue</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/pigpose.png" alt="PigPose: A Realtime Framework for Farm Animal Pose Estimation and Tracking" class="project-image" />
+          <h3>PigPose: A Realtime Framework for Farm Animal Pose Estimation and Tracking</h3>
+          <div class="project-links">
+            <a href="https://github.com/ThongNguyen551/Pig_Pose_Estimation_With_Lightweight_Openpose.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            |
+            <a href="https://www.springerprofessional.de/en/pigpose-a-realtime-framework-for-farm-animal-pose-estimation-and/23173616"
+              target="_blank"
+              class="project-link-btn">
+                <i class="fa fa-graduation-cap"></i>
+                Paper
+            </a>
+          </div>
+          <p>
+            Developed an attention-based multi-animal tracking framework using pose estimation and graph optimization for automated livestock monitoring and behavior analysis.
+          </p>
+          <div class="tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Pose Estimation</span>
+            <span class="tag">Multi-Object Tracking</span>
+            <span class="tag">Graph Optimization</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/hsi_placenta.png" alt="Visualization solutions for intraoperative hyperspectral imaging" class="project-image" />
+          <h3>Visualization solutions for intraoperative hyperspectral imaging</h3>
+          <div class="project-links">
+            <!-- <a href="https://github.com/ThongNguyen551/Pig_Pose_Estimation_With_Lightweight_Openpose.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a> -->
+            <!-- | -->
+            <a href="https://nva.sikt.no/registration/0198eaf3410a-81d80fca-f1b8-4fe8-bea7-84fed80d89e0" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Developed the DABS framework for hyperspectral image dimensionality reduction and trained U-Net/HRNet models 
+            for placenta tissue segmentation, achieving 0.8 mIoU while reducing spectral bands by 45.9%.
+          </p>
+          <div class="tags">
+            <span class="tag">Hyperspectral Imaging</span>
+            <span class="tag">Medical Imaging</span>
+            <span class="tag">Trasformer-based</span>
+            <span class="tag">U-Net</span>
+            <span class="tag">HRNet</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/hazy_nighttime.png" alt="Domain adaptation and image dehazing on nighttime hazy images" class="project-image" />
+          <h3>Domain adaptation and image dehazing on nighttime hazy images</h3>
+          <div class="project-links">
+            <a href="https://github.com/kresovicmilan/domain-adaptation-and-image-dehazing-on-nighttime-hazy-images.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            |
+            <a href="https://drive.google.com/file/d/1bw2ESYZ9WX8v5of7h4kZuDX87jxatjhe/view?usp=sharing" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Developed a CycleGAN-based domain adaptation framework for nighttime image dehazing, outperforming state-of-the-art methods on real-world nighttime images.
+          </p>
+          <div class="tags">
+            <span class="tag">CycleGAN</span>
+            <span class="tag">Domain Adaptation</span>
+            <span class="tag">Image Dehazing</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/pose_estimation_topdown.png" alt="A survey of top-down approaches for human pose estimation" class="project-image" />
+          <h3>A survey of top-down approaches for human pose estimation</h3>
+          <div class="project-links">
+            <!-- <a href="https://github.com/kresovicmilan/domain-adaptation-and-image-dehazing-on-nighttime-hazy-images.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            | -->
+            <a href="https://arxiv.org/pdf/2202.02656" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Performed a comparative analysis of state-of-the-art human pose estimation frameworks, covering object detection, 
+            keypoint localization, benchmark datasets, and evaluation metrics for multi-person pose estimation.
+          </p>
+          <div class="tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Pose Estimation</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Survey Paper</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/pose_estimation_bottomup.png" alt="Bottom-Up Approaches for Multi-Person Pose Estimation and Its Applications: A Brief Review" class="project-image" />
+          <h3>Bottom-Up Approaches for Multi-Person Pose Estimation and Its Applications: A Brief Review</h3>
+          <div class="project-links">
+            <!-- <a href="https://github.com/kresovicmilan/domain-adaptation-and-image-dehazing-on-nighttime-hazy-images.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            | -->
+            <a href="https://arxiv.org/pdf/2112.11834" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Conducted a comprehensive review of bottom-up multi-person pose
+            estimation methods, analyzing keypoint detection, association
+            strategies, benchmark datasets, and performance trade-offs in
+            modern human pose estimation systems.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Pose Estimation</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Multi-Person Tracking</span>
+            <span class="tag">Survey Paper</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/led_illumination.png" alt="Implementation of the optimal emission spectra
+          using the LED-based spectrally tunable light source" class="project-image" />
+          <h3>Implementation of the optimal emission spectra
+            using the LED-based spectrally tunable light source</h3>
+          <div class="project-links">
+            <!-- <a href="https://github.com/kresovicmilan/domain-adaptation-and-image-dehazing-on-nighttime-hazy-images.git" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            | -->
+            <a href="https://drive.google.com/file/d/1NqZGe7lH7MKMKjXkifYAdv7ArpzoUSYO/view?usp=sharing" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Developed a Particle Swarm Optimization (PSO) framework for
+            spectral light-source design, optimizing LED illumination
+            spectra to enhance feature visibility in hyperspectral
+            imaging applications.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Hyperspectral Imaging</span>
+            <span class="tag">Optimization</span>
+            <span class="tag">Particle Swarm</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="images/mocap_recognition.png" alt="Hand Posture Recognition & Clustering Analysis" class="project-image" />
+          <h3>Hand Posture Recognition & Clustering Analysis</h3>
+          <div class="project-links">
+            <a href="https://colab.research.google.com/drive/1naR2Evw_ohGN2dNSoyAZXMR2rGmof0oF?usp=sharing" target="_blank" class="project-link-btn">
+              <i class="fa fa-github"></i>
+              Code
+            </a>
+            |
+            <a href="https://drive.google.com/file/d/1ICuujURMbpbl8-342dKSE60Zom7-3Rz5/view?usp=sharing" target="_blank" class="project-link-btn">
+              <i class="fa fa-file-pdf-o"></i>
+              Report
+            </a>
+          </div>
+          <p>
+            Explored unsupervised and supervised learning methods for hand posture
+            recognition, benchmarking K-Means, Hierarchical Clustering, SVM,
+            K-NN, Decision Trees, and CNNs on a real-world motion capture dataset.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Clustering</span>
+            <span class="tag">Classification</span>
+            <span class="tag">Motion Capture</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container tab-panel">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>A path across automation engineering, industrial computer vision, food inspection, and fintech ML.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Senior Data Scientist · <a href="https://www.zalopay.vn/" target="_blank" class="company-link">Zalopay
+                (VNG Corporation) <i class="fa fa-external-link"></i></a></h3>
+            <span class="time">04/2025 – 02/2026</span>
+          </div>
+          <p class="muted">Ho Chi Minh, Vietnam</p>
+          <ul class="clean">
+            <li>Credit Scoring Modelling: Developed a LightGBM credit scorecard model for Cashloan, achieving monthly
+              Gini > 0.35 on 100K+ users.
+            </li>
+            <li>Feature Engineering: Engineered 3,000+ features from transactional, demographic, device, geolocation,
+              and credit
+              bureau data; optimized to ∼1,000 key features.</li>
+            <li>Creating Dashboard on Tableau: dashboards to monitor ML performance metrics (Gini, KS, PSI, drift)
+              across 5+ partners/products.
+            </li>
+            <li>Insight Analysis: Conducted model iteration, ablation studies, and feature stability analysis to improve
+              generalization across
+              monthly cohorts.
+            </li>
+            <li>Collaborated with Analytics, Engineering, Product, and Risk teams to deploy monitoring pipelines and
+              business
+              insights.
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Computer Vision Engineer | Data Scientist · <a href="https://www.tordivel.com/" target="_blank"
+                class="company-link">Tordivel AS <i class="fa fa-external-link"></i></a></h3>
+            <span class="time">04/2022 – 05/2025</span>
+          </div>
+          <p class="muted">Oslo, Norway</p>
+          <ul class="clean">
+            <li>Data and Annotation Verification: Led end-to-end CV data pipelines including collection, annotation, and
+              preprocessing for industrial inspection tasks.</li>
+            <li>Modelling: Developed and deployed deep learning models (Mask R-CNN, EfficientNet, U-Net) with mIoU of
+              0.85–0.9 across diverse datasets. Tuned key hyperparameters such as Anchor Boxes for dataset-specific
+              optimization in object detection tasks.</li>
+            <li>Deployment: Worked with engineering teams to integrate models into production software and standardize
+              evaluation/monitoring pipeline.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Computer Vision Researcher · <a href="https://www.uef.fi/" target="_blank"
+                class="company-link">University of Eastern Finland <i class="fa fa-external-link"></i></a></h3>
+            <span class="time">01/2022 – 08/2022</span>
+          </div>
+          <p class="muted">Joensuu, Finland</p>
+          <ul class="clean">
+            <li>Topic: Visualization Solutions for Intraoperative Hyperspectral Imaging.
+            </li>
+            <li>Proposed the DABS (Dual-Attention Band Selection) framework for hyperspectral image dimensionality
+              reduction and trained U-Net/HRNet models for human placenta tissue segmentation.
+            </li>
+            <li>Reduced hyperspectral bands by 45.9% (37→20) while preserving spectral representation.
+            </li>
+            <li>Developed image-based and patch-based training strategies, achieving 0.8 mIoU on the test set.
+            </li>
+            <li>Built a PyQt5 desktop application for segmentation visualization.
+            </li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>Machine Vision Research Intern · <a href="https://www.alliedvision.com/en/company/" target="_blank"
+                class="company-link"> Chromasens GmbH (now: Allied Vision Konstanz GmbH) <i
+                  class="fa fa-external-link"></i></a></h3>
+            <span class="time">06/2021 – 08/2021</span>
+          </div>
+          <p class="muted">Konstanz, Germany</p>
+          <ul class="clean">
+            <li>Reviewed 30+ papers on illumination and inspection algorithms for industrial imaging.
+            </li>
+            <li>Developed Halcon-based methods to detect dust, wafer cracks, and busbar defects in solar cells.
+            </li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <h3>AI Engineer · <a href="https://emagevision.com/" target="_blank" class="company-link"> Emage Development
+                <i class="fa fa-external-link"></i></a></h3>
+            <span class="time">01/2019 – 07/2020</span>
+          </div>
+          <p class="muted">Ho Chi Minh, Vietnam</p>
+          <ul class="clean">
+            <li>Worked with industrial imaging data including electronic chips, camera lenses, and microelectronic
+              circuits.
+            </li>
+            <li>Built annotation, training, and validation software using WPF/C# and integrated DL models with C++.
+            </li>
+            <li>Prepared technical documentation and deployment support.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="blogs" class="container tab-panel">
+      <div class="section-head">
+        <h2>Notes & Research Interests</h2>
+        <p>Topics I am exploring and writing about across applied AI, computer vision, and ML systems.</p>
+      </div>
+
+      <!-- <div class="two-col">
+        <div class="panel contact-card">
+          <h2 style="margin:0;letter-spacing:-.04em;">Research Interests</h2>
+          <div class="note-list">
+            <div class="note">
+              <h3>Vision-Language Models for Industrial AI</h3>
+              <p>How VLMs can support annotation, inspection reasoning, quality control, and domain-specific visual understanding.</p>
+            </div>
+            <div class="note">
+              <h3>Agentic Workflows for ML Systems</h3>
+              <p>Tool-using agents for fraud investigation, industrial inspection, data validation, and human-in-the-loop decision support.</p>
+            </div>
+            <div class="note">
+              <h3>Trustworthy Production ML</h3>
+              <p>Model monitoring, temporal validation, drift analysis, label stability, and robust evaluation before deployment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel contact-card">
+          <h2 style="margin:0;letter-spacing:-.04em;">Focus Areas</h2>
+          <div class="tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Medical Imaging</span>
+            <span class="tag">Hyperspectral Imaging</span>
+            <span class="tag">Industrial AI</span>
+            <span class="tag">Credit Risk</span>
+            <span class="tag">Fraud Detection</span>
+            <span class="tag">VLM</span>
+            <span class="tag">RAG</span>
+            <span class="tag">AI Agents</span>
+            <span class="tag">Model Monitoring</span>
+            <span class="tag">MLOps</span>
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <section id="contact" class="container tab-panel">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Please contact me for collaborations or opportunities.</p>
+      </div>
+
+      <div class="panel contact-card">
+        <div class="contact-list">
+          <a class="contact-link" href="mailto:thongng96@gmail.com"><i class="fa fa-envelope-o"></i>
+            thongng96@gmail.com</a>
+          <a class="contact-link" href="https://github.com/ThongNguyen551" target="_blank" rel="noopener noreferrer"><i
+              class="fa fa-github"></i> GitHub · ThongNguyen551</a>
+          <a class="contact-link" href="https://linkedin.com/in/thongnguyen551" target="_blank" rel="noopener noreferrer"><i
+              class="fa fa-linkedin"></i> LinkedIn · Thong Duy Nguyen</a>
+          <a class="contact-link" href="assets/Thong_Nguyen_CV.pdf" target="_blank" rel="noopener noreferrer"><i
+              class="fa fa-file-text-o"></i> Open CV PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="mentorship" class="container tab-panel">
+      <div class="section-head">
+        <h2>Mentorship</h2>
+      
+        <p>Founded <a href="https://www.facebook.com/freescholarshipmentors/" target="_blank" class="inline-link">
+            <i class="fa fa-facebook-square"></i>
+            <strong>Free Scholarship Mentors</strong>
+          </a>, a volunteer initiative dedicated to helping
+          Vietnamese students pursue fully funded Master's and PhD opportunities abroad.
+          Since 2020, I have provided mentorship on scholarship applications, academic profiles, statement of purpose writing,
+          interview preparation, and career development.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"> <strong>40+</strong> <span>Mentees</span> </div>
+        <div class="stat"> <strong>30+</strong> <span>Full Scholarships</span> </div>
+        <div class="stat"> <strong>60+</strong> <span>Admissions</span> </div>
+        <div class="stat"> <strong>15+</strong> <span>Countries</span> </div>
+      </div>
+      <h3 style="margin-top: 32px;">Impact by Admission Cycle</h3>
+        <div class="cards-grid">
+
+          <article class="card">
+            <h4>2025–2026</h4>
+            <p>
+              9 mentees • 6 full scholarships • 5+ additional admissions
+              including Erasmus Mundus, DAAD, France Excellence, SI Sweden,
+              NTU, NUS, and European MSc/PhD programs.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>2024–2025</h4>
+            <p>
+              13 mentees • 11 full scholarships • 2 tuition waivers •
+              admissions to NUS, Monash, Cornell, DAAD, Chevening,
+              Erasmus Mundus, Vingroup, and France Excellence programs.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>2023–2024</h4>
+            <p>
+              13 mentees • 8 full scholarships • 4 tuition waivers •
+              20+ admissions including COSI, IFROS, EDISS, EMECS,
+              CoDaS, ASU PhD, Arqus Talent, and European MSc programs.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>2022–2023</h4>
+            <p>
+              7 mentees • 2 full scholarships • multiple Erasmus Mundus
+              admissions and reserve-list outcomes including COSI, QuanTEEM,
+              IFROS, France Excellence, and Saarland University.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>2021–2022</h4>
+            <p>
+              2 mentees • 2 Erasmus Mundus admissions • robotics-focused
+              programs including MIR and IFROS.
+            </p>
+          </article>
+
+          <article class="card">
+            <h4>2020–2021</h4>
+            <p>
+              2 mentees • 4 graduate admissions • outcomes across Erasmus
+              Mundus SECCLO/LCT, Tampere University, and University of
+              Queensland.
+            </p>
+          </article>
+        </div>
+    </section>
+
+    <section id="awards" class="container tab-panel">
+    
+      <h2>Honors & Awards</h2>
+      <p>My humble achievements and recognitions.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <h3>👨‍🎓 Student Representative</h3>
+          <p>
+            Elected representative of the Erasmus Mundus COSI cohort.
+          </p>
+          <span class="time">2020–2022</span>
+        </article>
+        <article class="card">
+          <h3>🎓 Erasmus Mundus Master Program - Consortium Scholarship</h3>
+          <p>
+            Full tuition waiver and mobility scholarship for the Erasmus
+            Mundus MSc in Computational Colour and Spectral Imaging.
+          </p>
+          <span class="time">2020-2022</span>
+        </article>
+        <article class="card">
+          <h3>🎓 Erasmus Mundus Traineeship Grant</h3>
+          <p>
+            Awarded Erasmus Mundus funding for a summer research internship at
+            Chromasens GmbH (now Allied Vision), Germany, focusing on machine
+            vision and industrial imaging applications.
+          </p>
+          <span class="time">2021</span>
+        </article>
+        
+        <article class="card">
+          <h3>🎤 ASEAN Workshop Speaker</h3>
+          <p>
+            Selected speaker for Boosting Education in ASEAN,
+            Phnom Penh, Cambodia.
+          </p>
+          <span class="time">2018</span>
+        </article>
+        
+        <article class="card">
+          <h3>🎓 SHARE Scholarship</h3>
+          <p>
+            Selected among 50 ASEAN students for a fully funded
+            academic exchange semester in Europe - University College Cork, Ireland.
+          </p>
+          <span class="time">2017</span>
+        </article>
+    
+      </div>
+    
+    </section>
+  </main>
+
+  <footer class="container footer">
+    © <span id="year"></span> Thong Nguyen. Built for Data Science, Computer Vision, and Applied AI.
+  </footer>
+
+  <script>
+    const tabLinks = document.querySelectorAll(".tab-link");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    function showTab(tabName) {
+      panels.forEach(panel => {
+        panel.classList.toggle("active", panel.id === tabName);
+      });
+
+      tabLinks.forEach(link => {
+        link.classList.toggle("active", link.dataset.tab === tabName);
+      });
+
+      if (history.pushState) {
+        history.pushState(null, "", "#" + tabName);
+      }
+    }
+
+    tabLinks.forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        const tabName = link.dataset.tab;
+        if (tabName) showTab(tabName);
+      });
+    });
+
+    const initialTab = window.location.hash.replace("#", "");
+    if (initialTab && document.getElementById(initialTab)) {
+      showTab(initialTab);
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
